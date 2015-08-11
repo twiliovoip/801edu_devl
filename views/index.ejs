@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+ <link href="/css/effect.css" rel="stylesheet"> 
+<% include head.ejs %>
+<body class="skin-blue">
+    <% include header_notoggle.ejs %>
+    <div class="wrapper row-offcanvas row-offcanvas-left">
+
+        <% var log = logged %>
+        
+		
+        <!-- Right side column. Contains the navbar and content of the page -->             
+            <!-- Content Header (Page header) -->
+            <!--<section class="content-header">
+                <h1>
+                    <%= title %>
+                    <small><%= heading %></small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="/"><i class="fa fa-home"></i><%= __('Home') %></a></li>
+                    <li class="active"><%= title %></li>
+                </ol>
+            </section>-->
+
+            <!-- Main content -->
+            <section class="content" ng-app="validationApp">
+
+                <% if(serverMsg != null) {%>
+                <div class="callout callout-primary server_msg">
+                    <h4>Server Msg</h4>
+                    <p><%= serverMsg %></p>
+                </div>
+                <% } %>
+
+     		<% if(logged){ %>
+
+                <div ng-controller="dataController" class="col-lg-12 col-md-12 col-sm-12 col-xs-12"  id="app" style="display: none;">
+
+                    <!--<%= __('Welcome') %>, <%= user.local.firstName %> <%= user.local.lastName %>-->
+                    
+  <div class="content">
+    <div class="field field-name-body field-type-text-with-summary field-label-hidden">
+    	<div class="field-items">
+    		<div class="field-item even" property="content:encoded">
+    			<div align="center" id="pic_group0">
+    				<br />
+    				<br />
+    				<br />
+    				<br />
+    				<br />
+					<p>
+					<% if(lang == "ch"){ %>
+						<a href="/yourclasses"> 
+							<img title="<%= __('Your Classes') %>" alt="" class="growicon" 
+									src="/images/squareIcon/Resume_Search_1.png" 
+									 />
+						</a>						
+						<a href="/editprofile"> 
+							<img title="<%= __('Profile') %>" alt="" class="growicon" 
+									src="/images/squareIcon/Mechanism_1.png" 
+									 />
+						</a>
+						<a href="/showcalendar"> 
+							<img title="<%= __('Profile') %>" alt="" class="growicon" 
+									src="/images/squareIcon/calendarbtn_1.png" 
+									 />
+						</a>
+					<% } else {%>	
+						<a href="/yourclasses"> 
+							<img title="<%= __('Your Classes') %>" alt="" class="growicon" 
+									src="/images/squareIcon/MyClasses.png" 
+									 />
+						</a>						
+						<a href="/editprofile"> 
+							<img title="<%= __('Profile') %>" alt="" class="growicon" 
+									src="/images/squareIcon/MyProfile.png" 
+									 />
+						</a>
+						<a href="/showcalendar"> 
+							<img title="<%= __('Profile') %>" alt="" class="growicon" 
+									src="/images/squareIcon/calendarbtn.png" 
+									 />
+						</a>
+					<% } %>
+					</p>
+				</div>
+            		<% if ( user.local.userType =="student"){%>
+	            		
+						<div align="center" id="pic_group1">
+							<p>
+								<a href="/wordQuiz"> 
+									<img title="<%= __('Quiz Material') %>" alt="" class="growicon" 
+											src="/images/squareIcon/Selection_1.png" 
+											 />
+								</a> 							
+								<a href="/audioReading"> 
+									<img title="<%= __('Audio Material') %>" alt="" class="growicon" 
+											src="/images/squareIcon/Microphone.png" 
+											 />
+								</a> 
+								<a href="/games/wordGame">
+									<img title="<%= __('games') %>" alt="" class="growicon" 
+											src="/images/squareIcon/Open_App_1.png" 
+											/>
+								</a> 
+							</p>
+						</div>
+						<div align="center" id="pic_group2">
+							<p>
+								<a href="/classCatelog"> 
+									<img title="<%= __('Class Catelog') %>" alt="" class="growicon" 
+											src="/images/squareIcon/Folders_1.png" 
+											 />
+								</a> 
+								<a href="/courseselection">
+									<img title="<%= __('Class Selection') %>" alt="" class="growicon" 
+											src="/images/squareIcon/Shopping_Trolley_1.png" 
+											/>
+								</a> 
+							</p>
+						</div>							
+						
+					<% } %> <!--if student-->	
+					<% if ( isEvaluator){%>
+	    				<!--<div align="center" id="pic_group3">
+							<p>
+								<a href="/scoreClips"> 
+									<img title="<%= __('Score Clips') %>" alt="" class="growicon" 
+											src="/images/squareIcon/Square_BG_128_31_Scales.png" 
+											 />
+								</a>					
+							</p>
+						</div>-->		            		            	
+		        	<% } %><!--if isEvaluator-->
+            <% if(isAdmin){ %>
+					<div align="center" id="pic_group4">
+						<p>
+							<a href="/createcourse"> 
+								<img title="<%= __('Add Course') %>" alt="" class="growicon" 
+										src="/images/squareIcon/CreateCourse.png" 
+										 />
+							</a> 
+							<a href="/editcourse">
+								<img title="<%= __('Edit Course') %>" alt="" class="growicon" 
+										src="/images/squareIcon/ModifyCourse.png" 
+										/>
+							</a> 
+							<a href="/addeditclass"> 
+								<img title="<%= __('Add/Edit Class') %>" alt="" class="growicon" 
+										src="/images/squareIcon/AddEditClass.png" 
+										 />
+							</a> 
+							<a href="/classreg">
+								<img title="<%= __('Add/Edit Class Registration') %>" alt="" class="growicon" 
+										src="/images/squareIcon/ClassRegristration.png" 
+										/>
+							</a> 
+							<!--<a href="/classsession">
+								<img title="<%= __('Add/Remove Class Sessions') %>" alt="" class="growicon" 
+										src="/images/squareIcon/AddClassSession.png" 
+										/>
+							</a>
+							<a href="/manageEvaluators"> 
+								<img title="<%= __('Add/Edit Evaluators') %>" alt="" class="growicon" 
+										src="/images/squareIcon/ModifyEvaluator.png" 
+										 />
+							</a>--> 							
+						</p>						
+					</div>  
+						<div align="center" id="pic_group7">
+							<p>
+								<a href="/wordQuiz">
+									<img title="<%= __('Quiz Material') %>" alt="" class="growicon" 
+											src="/images/squareIcon/Selection_1.png" 
+											/>
+								</a> 
+								<a href="/audioReading"> 
+									<img title="<%= __('Audio Material') %>" alt="" class="growicon" 
+											src="/images/squareIcon/Microphone.png" 
+											 />
+								</a> 
+								<a href="/games/wordGame">
+									<img title="<%= __('games') %>" alt="" class="growicon" 
+											src="/images/squareIcon/Open_App_1.png" 
+											/>
+								</a> 								
+							</p>
+						</div>						
+						<div align="center" id="pic_group6">
+							<p>
+								<a href="/classCatelog"> 
+									<img title="<%= __('Class Catelog') %>" alt="" class="growicon" 
+											src="/images/squareIcon/Folders_1.png" 
+											 />
+								</a> 
+								<a href="/courseselection">
+									<img title="<%= __('Class Selection') %>" alt="" class="growicon" 
+											src="/images/squareIcon/Shopping_Trolley_1.png" 
+											/>
+								</a> 
+							</p>
+						</div>						
+            	<% } %>  		        	
+		        	
+			<% } %>   		        		
+	        	
+			</div>
+		</div>
+	</div>  
+</div>                    
+                 
+          
+              
+            
+            <% if(logged == '0'){%>
+                <li>
+                    <a href="/auth">
+                        <i class="fa fa-user"></i> <span><%= __('Register and Login') %></span>
+                    </a>
+                </li>
+            <% } %>
+
+            </div>
+            
+
+            
+
+
+    </section><!-- /.content -->
+</div><!-- ./wrapper -->
+
+<% if(logged){ %>
+<script>
+//set user id
+var user_id = "<%= user._id %>";
+</script>
+<% } %>
+<script src="/angular/angular.min.js"></script>
+<script src="/angular_app/mainpage/app.js"></script>
+
+
+<script>
+    
+    function imageExists(url, callback) {
+		  var img = new Image();
+		  img.onload = function() { callback(true); };
+		  img.onerror = function() { callback(false); };
+		  img.src = url;
+	}
+
+	    
+    function getProfileP(uiD) {
+    	var imageurl= '/uploads/'+uiD+'/files/profile';
+    	
+		imageExists(imageurl, function(exists) {		
+	     if (exists){
+		     return imageurl;
+	     }
+	     else{
+	     	imageurl= '/images/greenbird.png';
+		     return imageurl;
+		     }
+	     });
+	}
+</script>
+
+</body>
+</html>

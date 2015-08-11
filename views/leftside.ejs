@@ -1,0 +1,202 @@
+<!-- Left side column. contains the logo and sidebar -->
+<aside class="left-side sidebar-offcanvas">                
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar" >
+        
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu">
+            <li>
+                <a href="/">
+                    <i class="fa fa-home"></i> <span><%= __('Home') %></span>
+                </a>
+            </li>
+            
+
+            <% if(logged){ %>
+    		<li>
+               <span><%= __('My801') %></span>
+            </li>            
+            <li>
+                <a href="/yourclasses">
+                    <i class="fa  fa-laptop"></i> <span><%= __('Your Classes') %></span>
+                </a>
+            </li>            
+            <li>
+            	<a href="/editprofile">
+                    <i class="fa fa-user"></i> <span><%= __('Profile') %></span>
+                </a>
+            </li>
+
+            	<% if ( user.local.userType =="student"){%>
+            		<li> 
+            	
+	            		<li>
+			               <span><%= __('Evaluation Label') %></span>
+			            </li>
+			            <!--<li>
+			                <a href="/recordAudio">
+			                    <i class="fa fa-microphone "></i> <span><%= __('Record') %></span>
+			                </a>
+			            </li>
+			            
+			            <li>
+			                <a href="/myAudios">
+			                    <i class="fa fa-check-circle"></i> <span><%= __('My Audio Clips') %></span>
+			                </a>
+			            
+			            </li>-->
+			            <li>
+		                <a href="/wordQuiz">
+		                    <i class="fa fa-file-text-o"></i> <span><%= __('Quiz Material') %></span>
+		                </a>
+		            	</li>
+
+			            <span><%= __('Selfstudy Label') %></span>	            	
+		            	<li>
+		                <a href="/audioReading" >
+		                    <i class="fa fa-headphones"></i> <span><%= __('Audio Material') %></span>
+		                </a>
+		            	</li>
+		            	
+		            	<li>
+		                <a href="/games/wordGame">
+		                    <i class="fa fa-cubes"></i> <span><%= __('games') %></span>
+		                </a>
+		            	</li>	            	            	
+		            	<li>
+
+			            <span><%= __('Registration Label') %></span>
+			            </li>
+			            <li>
+			                <a href="/classCatelog">
+			                    <i class="fa fa-folder-open "></i> <span><%= __('Class Catelog') %></span>
+			                </a>
+			            </li>	
+		            	<li>
+			                <a href="/courseselection">
+			                    <i class="fa fa-shopping-cart "></i> <span><%= __('Class Selection') %></span>
+			                </a>
+		            	</li>			            
+		         </li>   
+		         
+		        <% } %>
+		        
+
+            
+                <% if(isEvaluator){ %>
+                    <!--<li>
+                        <a href="/scoreClips">
+                            <i class="fa fa-thumbs-up"></i> <span><%= __('Score Clips') %></span>
+                        </a>
+                    </li>-->                    
+                <% } %>
+                
+                <% if(isAdmin){ %>
+	                <li>
+			    		<li>
+
+			               <span><%= __('Management Label') %></span>
+			            </li>            
+			            <li>
+			                <a href="/createcourse">
+			                    <i class="fa fa-bars"></i> <span><%= __('Add Course') %></span>
+			                </a>
+			            </li>
+			            <li>
+			                <a href="/editcourse">
+			                    <i class="fa fa-edit"></i> <span><%= __('Edit Course') %></span>
+			                </a>
+			            </li>
+			            <li>
+			                <a href="/addeditclass">
+			                    <i class="fa fa-edit"></i> <span><%= __('Add/Edit Class') %></span>
+			                </a>
+			            </li>
+			            <li>
+			                <a href="/classreg">
+			                    <i class="fa fa-group"></i> <span><%= __('Add/Edit Class Registration') %></span>
+			                </a>
+			            </li>
+			            <li>
+			                <a href="/editusertype">
+			                    <i class="fa fa-group"></i> <span><%= __('Edit User Type') %></span>
+			                </a>
+			            </li>		            
+			            <!--<li>
+			                <a href="/classsession">
+			                    <i class="fa fa-group"></i> <span><%= __('Add/Remove Class Sessions') %></span>
+			                </a>
+			            </li>
+			            <li>
+			                <a href="/manageEvaluators">
+			                    <i class="fa fa-group"></i> <span><%= __('Add/Edit Evaluators') %></span>
+			                </a>
+			            </li>-->
+	            		<li>
+
+			               <span><%= __('Evaluation Label') %></span>
+			            </li>
+			            <!--<li>
+			                <a href="/recordAudio">
+			                    <i class="fa fa-microphone "></i> <span><%= __('Record') %></span>
+			                </a>
+			            </li>
+			            
+			            <li>
+			                <a href="/myAudios">
+			                    <i class="fa fa-check-circle"></i> <span><%= __('My Audio Clips') %></span>
+			                </a>
+			            
+			            </li>-->
+			            <li>
+		                <a href="/wordQuiz">
+		                    <i class="fa fa-file-text-o"></i> <span><%= __('Quiz Material') %></span>
+		                </a>
+		            	</li>
+
+			               <span><%= __('Selfstudy Label') %></span>	            	
+		            	<li>
+		                <a href="/audioReading" >
+		                    <i class="fa fa-headphones"></i> <span><%= __('Audio Material') %></span>
+		                </a>
+		            	</li>
+		            	
+		            	<li>
+		                <a href="/games/wordGame">
+		                    <i class="fa fa-cubes"></i> <span><%= __('games') %></span>
+		                </a>
+		            	</li>	            	            	
+				            <span><%= __('Registration Label') %></span>
+				            </li>
+				            <li>
+				                <a href="/classCatelog">
+				                    <i class="fa fa-folder-open "></i> <span><%= __('Class Catelog') %></span>
+				                </a>
+				            </li>	
+			            	<li>
+				                <a href="/courseselection">
+				                    <i class="fa fa-shopping-cart "></i> <span><%= __('Class Selection') %></span>
+				                </a>
+			            	</li>    
+			            </li>       
+            	<% } %> <!-- is admin-->
+            <% } %>
+            <% if(logged == '0'){%>
+                <li>
+                    <a href="/auth">
+                        <i class="fa fa-user"></i> <span><%= __('Register and Login') %></span>
+                    </a>
+                </li>
+            <% } %>
+
+ 
+            <!--<li>
+                <a href="/contactus">
+                    <i class="fa fa-user"></i> <span><%= __('Contact Us') %></span>
+                </a>
+            </li>-->
+            
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>

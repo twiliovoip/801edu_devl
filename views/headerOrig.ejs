@@ -1,0 +1,162 @@
+<!-- header logo: style can be found in header.less -->
+<header class="header">	
+<%var imageurl%>
+	<!-- Add the class icon to your logo image or logo icon to add the margining -->
+	<% if(lang == "ch"){ %>
+		<a href="/homepage" class="logo">			
+			<img width="30" height="30" src="/icon/801logo.png"> 八点零一	
+		</a>
+	<% } else {%>
+		<a href="/homepage_en" class="logo">			
+			801 Edu	<img width="30" height="30" src="/icon/801logo.png">
+		</a>	
+	<% } %>
+	<!-- Header Navbar: style can be found in header.less -->
+	<nav class="navbar navbar-static-top" role="navigation">
+		<!-- Sidebar toggle button-->
+		<a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button" >
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</a>
+		<div class="navbar-right">
+			
+			<ul class="nav navbar-nav">
+				<!-- Messages: style can be found in dropdown.less-->
+				<!-- User Account: style can be found in dropdown.less -->
+				<li class="dropdown user">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<!-- <i class="glyphicon glyphicon-user"></i> -->
+						Language <i class="caret"></i>
+					</a>
+					<ul class="dropdown-menu">
+						<!-- User image -->
+						
+						<li class="">
+							<table class="table" style="margin-bottom: 0px;">
+								<tr>
+									<td>
+										<a href="/changeLang/ch" class="btn btn-primary">中文</a>
+									</td>
+									<td>
+										<a href="/changeLang/en" class="btn btn-primary">EN</a>
+									</td>
+								</tr>
+							</table>
+						</li>
+						
+					</ul>
+				</li>
+				
+
+			</ul>
+		</div>
+		<div class="navbar-right">
+
+			<ul class="nav navbar-nav">
+				<!-- Messages: style can be found in dropdown.less-->
+				
+				<% if(logged){ %>
+				<!-- User Account: style can be found in dropdown.less -->
+				<li class="dropdown user user-menu">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<!--<i class="glyphicon glyphicon-user"></i>-->
+							<img width="30" height="30"  id="smallprofile"  src="/uploads/<%= user._id %>/files/profile" class="img-circle" alt="User Image" />
+						<span><%= user.local.firstName %> <%= user.local.lastName %> <i class="caret"></i></span>
+					</a>
+					<ul class="dropdown-menu">
+						<!-- User image -->
+						<li class="user-header bg-light-blue">
+							<img id="largeprofile" class="img-circle" alt="User Image" />
+							<p>
+								<%= user.local.firstName %> <%= user.local.lastName %> - <%= user.local.userType  %>
+								
+							</p>
+						</li>
+						<!-- Menu Body -->
+
+						<!-- Menu Footer-->
+						<li class="user-footer">
+							<!--<div class="pull-left">
+								<a href="/editprofile" class="btn btn-default btn-flat"><%= __('Edit Profile') %></a>
+							</div>-->
+							<div class="pull-right">
+								<a href="/logout" class="btn btn-default btn-flat"><%= __('Sign out') %></a>
+							</div>
+						</li>
+					</ul>
+				</li>
+				<% } %>
+
+			</ul>
+		</div>
+ <div
+      class="modal fade modal-alternative"
+      id="language-modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="language-modal"
+      aria-hidden="true"
+      data-backdrop="static"
+    >
+      <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button
+            type="button"
+            class="close close-without-border"
+            data-dismiss="modal"
+            >
+            &times;
+          </button>
+          <img class="logo-sm" src="/icon/801logo.png" />
+        </div>
+ 
+        <div class="modal-body clearfix">
+          <h3 class = "modal-title">选择语言 </br> Select a language…</h3>
+          <ul class="list-group row">
+              <li class="language-item col-xs-6 col-md-3">
+                <a class="text-muted depress-on-click" href="/changeLang/en">
+                  English 
+                </a>
+              </li>
+
+              <li class="language-item selected col-xs-6 col-md-3">
+                <a class="text-muted depress-on-click" href="/changeLang/ch">
+                  中文
+                </a>
+              </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+    </div>    		
+		
+	</nav>
+</header>
+
+<script>
+	var userid = '<%= user._id %>';
+	imageurl= '/uploads/'+userid+'/files/profile';
+    
+    function imageExists(url, callback) {
+		  var img = new Image();
+		  img.onload = function() { callback(true); };
+		  img.onerror = function() { callback(false); };
+		  img.src = url;
+	}
+
+	imageExists(imageurl, function(exists) {		
+	     if (exists){
+		     document.getElementById("largeprofile").src=imageurl;
+		     document.getElementById("smallprofile").src=imageurl;
+	     }
+	     else{
+	     	document.getElementById("largeprofile").src='/images/greenbird.png';
+		     document.getElementById("smallprofile").src='/images/greenbird.png';
+
+	     }
+	});	
+</script>

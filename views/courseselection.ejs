@@ -1,0 +1,139 @@
+    <!DOCTYPE html>
+    <html>
+    <% include head.ejs %>
+
+    <body class="skin-blue">
+      <% include header.ejs %>
+      <div class="wrapper row-offcanvas row-offcanvas-left">
+        <% var log = logged %>
+        <% var firstName =  user.local.firstName%>
+        <% var lastName =  user.local.lastName%>
+        <% var useremail =  user.local.email%>
+        <% var contact_info =  user.local.phone%>
+        
+        <% include leftside.ejs %>
+
+        <!-- Right side column. Contains the navbar and content of the page -->
+        <aside class="right-side">                
+          <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    <img style="width:50px; height:50px;" src="/images/squareIcon/Square_BG_128_33_Shopping_Trolley.png">
+              		<small><%= __('Class Selection') %></small>
+                </h1>
+            </section>
+                      
+          <!--<section class="content-header">
+            <h1>
+              <%= title %>
+              <small><%= heading %></small>
+              <img style="width:50px; height:50px;" src="/images/Square_BG_128_33_Shopping_Trolley.png">
+            </h1>
+            <ol class="breadcrumb">
+              <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+              <li class="active"><%= title %></li>
+            </ol>
+          </section>-->
+            
+          <!-- Main content -->
+            <section class="content">
+                <div ng-app="createMessageApp" ng-controller="mainController">             
+                    <div class="callout callout-danger server_msg" ng-if="serverRes" style="position: absolute; z-index: 10">
+                        <p>{{ serverMsg }}</p>
+                    </div>
+					<h3>
+					请提交课程选择或拨打选课热线: <br />
+					18998559795 18998559796 18998559797 18998559798<br />
+					</h3>					
+					<br />
+ 			<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                <div class="box box-primary">
+                  <div class="box-header">
+                    <h3 class="box-title"></h3>
+                  </div><!-- /.box-header -->
+                  <!-- form start -->
+                  <form role="form" novalidate name="messageForm">
+                    <div class="box-body">
+                      <div class="form-group">
+                        <input type="text" class="form-control" style="display: none;" ng-model="UserMessage.UserMessageCategory" name="UserMessageCategory"  ng-init="UserMessage.UserMessageCategory='学生选课'">
+                      </div>
+                      <div class="form-group">
+                        <label for="email"><%= __('Email address') %></label>
+                        <input type="email" class="form-control" ng-model="UserMessage.email" name="email" required ng-init="UserMessage.email='<%= useremail %>'">
+                        
+                      </div>
+                    <div class="form-group">
+                        <label for="firstname"><%= __('First Name') %></label>
+                        <input type="text" class="form-control" ng-model="UserMessage.firstName" name="firstname"  ng-init="UserMessage.firstName='<%=firstName %>'">
+                      </div>
+                      <div class="form-group">
+                        <label for="lastname"><%= __('Last Name') %></label>
+                        <input type="text" class="form-control" ng-model="UserMessage.lastName" name="lastname"  ng-init="UserMessage.lastName='<%=lastName %>'">
+                      </div>
+                      <div class="form-group">
+                        <label for="contact_info">联系电话</label>
+                        <input type="text" class="form-control" ng-model="UserMessage.contact_info" name="contact_info"  ng-init="UserMessage.contact_info='<%=contact_info %>'">
+                      </div>
+                     <div class="form-group">
+                        <label>选择课程</label>
+                          <select class="form-control" ng-model="UserMessage.message_selection" ng-init="UserMessage.message_selection='499 美国口语课程促销'">
+                              <option value="499 美国口语课程促销">￥499 美国口语课程促销</option>
+                              <option value="8999 美国同步课程促销">￥8999 美国同步课程促销</option>
+                              <option value="2999 特价精选雅思课">￥2999 特价精选雅思课程</option>
+                              <option value="1999 特价精选雅思课程">￥1999 特价精选雅思课程</option>                              
+                              <option value="2999 特价精选托福课程">￥2999 特价精选托福课程</option>
+                              <option value="1999 特价精选托福课程">￥1999 特价精选托福课程</option>    
+                              <option value="其他课程">其他课程 - 请在选课要求下注明</option>    
+                          </select>
+                      </div>                      
+                      <div class="form-group">
+                        <label for="message_body">其他要求</label>
+                        <textarea class="form-control" ng-model="UserMessage.message_body" name="message_body"  placeholder="其他选课要求"></textarea>
+                      </div>
+                      <!--<div class="form-group">
+                        <label><%= __('Select Preferred Language')%></label>
+                          <select class="form-control"  ng-model="UserMessage.preferred_lang" ng-init="UserMessage.preferred_lang='中文'">
+                              <option value="中文">中文</option>
+                              <option value="English">English</option>
+                          </select>
+                      </div>-->
+                        <div class="form-group">
+                        <input type="text" class="form-control" style="display: none;" ng-model="UserMessage.status" name="UserMessagestatus"  ng-init="UserMessage.status='New'">
+                      </div>
+                        <div class="form-group">
+                        <input type="date" class="form-control" style="display: none;" ng-model="UserMessage.added" name="UserMessageadded" ng-init="UserMessage.added=''">
+                      </div>                      
+
+                    </div><!-- /.box-body -->
+               
+                </form>
+                
+
+
+              </div>
+
+              <div class="col-lg-12">
+                <button class="btn btn-primary btn-lg"  ng-click="createUserMessagefunc()">提交</button> 
+              </div>
+
+             </div>
+             </div>
+
+          </section><!-- /.content -->
+
+
+
+        </aside><!-- /.right-side -->
+
+
+
+      </div><!-- ./wrapper -->
+      
+          <script src="/angular/angular.min.js"></script>
+          <script src="/angular/angular-resource.min.js"></script>
+          <script src="/angular/angular-animate.min.js"></script>
+          <script src="/angular_app/createMessage/app.js"></script>
+           
+
+        </body>
+        </html>

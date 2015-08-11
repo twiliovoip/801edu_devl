@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<% include head.ejs %>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<link rel="apple-touch-icon" sizes="114x114" href="./mobilimages/icontwo.png">
+<link rel="apple-touch-startup-image" href="./mobilimages/startup.png" />
+<title>八点零一 WebApp</title>
+
+<link href="./mobilcss/style.css" rel="stylesheet" type="text/css">
+<link href="./mobilcss/buttons.css" rel="stylesheet" type="text/css">
+<link href="./mobilcss/type.css" rel="stylesheet" type="text/css">
+<!--<link href="./mobilcss/add2home.css" rel="stylesheet" type="text/css">-->
+<link href="./mobilcss/flexslider.css" rel="stylesheet" type="text/css">
+<link href="./mobilcss/photoswipe.css" rel="stylesheet" type="text/css">
+
+<link href="./bootstrap/bootstrap.min.css" rel="stylesheet">
+<script src="./javascripts/jquery.min.js"></script>
+<script src="./bootstrap/bootstrap.min.css"></script>
+    
+<!-- Do not move the bellow script to custom.js! It must stay here to load properly! -->
+<script type="text/javascript">
+	function loadImages() {
+		if (document.getElementById) {  // DOM3 = IE5, NS6
+			document.getElementById('hidepage').style.visibility = 'hidden';
+		}else {
+		if (document.layers) {  // Netscape 4
+			document.hidepage.visibility = 'hidden';
+		}else {  // IE 4
+			document.all.hidepage.style.visibility = 'hidden';
+		  }
+	   }
+	}
+</script>
+
+<script type="text/javascript" src="./mobilscripts/jquery.js"></script>
+<script type="text/javascript" src="./mobilscripts/contact.js"></script>
+<script type="text/javascript" src="./mobilscripts/jquery.flexslider-min.js"/></script>
+<script type="text/javascript" src="./mobilscripts/tweetable.js"></script>
+<!--<script type="text/javascript" src="./mobilscripts/add2home.js"></script>-->
+<script type="text/javascript" src="./mobilscripts/jquery.nivo.slider.pack.js"></script>
+<script type="text/javascript" src="./mobilscripts/klass.min.js"></script>
+<script type="text/javascript" src="./mobilscripts/code.photoswipe.jquery-3.0.4.min.js"></script>
+<script type="text/javascript" src="./mobilscripts/custom.js"></script>
+</head>
+
+<body OnLoad="loadImages()">
+<p class="no-mobile">Please visit from your mobile phone!<br/> This site is designed for mobiles you know! </p>
+<div class="site">
+
+<div id="hidepage"> 
+	<p class="center-text">Loading depends on mobile bandwidth speed!<br/><img src="./mobilimages/background/130.gif" alt="load"></p>
+</div>
+
+<div class="navigation">
+	<a id="home" class="selected" href="#"><img src="./mobilimages/nav/item1ns.png" alt="img"><em class="under-icon-text"> </em></a>
+    <a id="about" 		  	      href="#"><img src="./mobilimages/nav/item3ns.png" alt="img"><em class="under-icon-text"> </em></a>
+    <a id="portfolio" 	  		  href="#"><img src="./mobilimages/nav/item5ns.png" alt="img"><em class="under-icon-text">  </em></a>
+    <a id="blog" 		  	      href="#"><img src="./mobilimages/nav/item4ns.png" alt="img"><em class="under-icon-text"> </em></a>
+    <a id="contact" 	  		  href="/logout"><img src="./mobilimages/nav/item6.png" alt="img"><em class="under-icon-text"> </em></a>
+</div>
+
+<div class="header">
+	<img class="logo" src="./images/header_icon.jpg" width="23%" alt="img"> 
+</div>
+<div class="home">
+	<h4 class="center">八点零一 视屏课堂</h4>
+	<video id="remote_media" autoplay src="" class="video-js vjs-default-skin"  
+		preload="auto" width=100% height=40% muted			
+		poster="./images/MicrophoneMobil.png" 
+		data-setup='{"example_option":true}'>  
+	</video>
+		
+	<video id="local_media" autoplay src="" class="video-js vjs-default-skin"  
+		preload="auto" width=30% height=10% muted
+		poster="./images/MicrophoneMobil.png" 
+		data-setup='{"example_option":true}'>  
+	</video>
+	     
+</div>
+
+<div class="about">
+	<h4 class="center">Screen Sharing 屏幕分享</h4>
+    <div class="col-sm-1 text-center">
+        <div class="lessenes-item">
+            <a id="buttonshareDesktop" class="lessenes-icon fa fa-desktop fa-6" title="屏幕分享" style="display:none"></a>
+        </div>
+    </div>	
+   	<div id="videodisplayframe" style='display:none'>
+			<div id="videodisplaysection" class="videodisplay">
+				<video id="example_video_1" class="video-js vjs-default-skin"
+  					autoplay controls preload="auto" width=100% height=55%
+  					poster="./images/slide_show1.jpg" 
+  					data-setup='{"example_option":true}'>
+ 				</video>						
+			</div>	
+	</div>		
+    <div id="videodisplayframe3">
+			<div id="videodisplaysection3" class="videodisplay">
+				<video id="example_video_3" class="video-js vjs-default-skin"
+  					controls preload="auto" width=100% height=55%
+  					poster="./images/slide_show1.jpg" 
+  					data-setup='{"example_option":true}'>
+ 					<source src="./images/slideshow.mp4"  type='video/mp4' />
+ 				</video>						
+			</div>	
+	</div>		
+</div>
+
+<div class="portfolio"> 
+	    <h4 class="center">Messaging 短信</h4>
+        <p class="center-column-big-text shadow">
+         Under Construction...
+        </p>
+</div>
+
+<div class="blog">
+		<h4 class="center">Contact Us 联系我们</h4>
+	    <p class="center-column-big-text shadow">
+         Under Construction...
+        </p>
+	<form id="contactForm">
+    <div class="decoration"></div>
+        <fieldset>
+            <label for="contactName" id="name_label">Name (required)</label>
+            <input type="text" name="contactName" id="contactName" size="30" value="" class="text-input" />
+            <span class="error" id="nameError">Please enter your name !</span>
+            <label for="contactEmail" id="email_label">Email (required)</label>
+            <input type="text" name="contactEmail" id="contactEmail" size="30" value="" class="text-input" />
+            <span class="error" id="emailError">Please enter your email address !</span> 
+            <span class="error" id="emailError2">Please enter a valid email address !</span>
+            <label for="contactMessage" id="message_label">Message</label>
+            <textarea  name="contactMessage" id="contactMessage" class="text-input"></textarea>
+            <span class="error" id="messageError">Please enter message !</span>
+            <p>
+                <input type="submit" name="submitMessage" class="contactButton button grey" id="contactSubmitBtn" value="Send"/>
+            </p>
+		</fieldset>
+	</form>
+    <div class="decoration"></div>
+</div>
+
+</div>
+
+
+<script src="./javascripts/firebase.js"> </script>
+<script src="./javascripts/jquery-ui.js"></script>
+
+
+<script> 
+
+        var userid = '<%= user._id %>';
+        var token = '<%= class_id %>';
+        var userType = '<%= user.local.userType %>';
+        var userName = '<%= user.local.firstName %>';
+
+		  if (userType == "teacher")
+		  {
+			  log("Pleasa login using PC to host a meeting")
+		  }     
+        
+	    user_id = userid;
+	    user_name = userName;
+	    console.log(user_id, token, userType);
+
+          
+</script>
+
+</body>
+
+</html>

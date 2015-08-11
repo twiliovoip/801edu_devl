@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./bootstrap/css/jquery-ui.css">
+
+    <!-- Add custom CSS here -->
+    <link href="./stylesheets/style-custom.css" rel="stylesheet">
+    <link href="./stylesheets/stylish-portfolio.css" rel="stylesheet">
+    <link href="./stylesheets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<body>
+
+
+ <div id="container">
+	<!-- camera display group -->	
+        <!-- local/remote videos container -->
+     <div id="maindisplay">				
+		    <!-- screen sharing and video sharing -->
+		    <div id="videodisplayframe" style='display:none'>
+					<div id="videodisplaysection" class="videodisplay">
+						<video id="share_video" 
+		  					controls preload="auto" width=100% height=100%
+		  					poster="./images/slide_show1.jpg" 
+		  					>
+		 				</video>						
+					</div>	
+			</div>		
+		
+			<!-- initial display screen, default video -->
+		    <div id="videodisplayframe3">
+					<div id="videodisplaysection3" class="videodisplay">
+						<video id="demo_video" 
+		  					controls preload="auto" width=100% height=100%
+		  					poster="./images/slide_show1.jpg" 
+		  					>
+		 					<source src="./images/slideshow.mp4"  type='video/mp4' />
+		 				</video>						
+					</div>	
+			</div>		
+				 			
+    </div>   		
+
+	<div id = "local_video_panel_multi" >
+	 			<video id="local_media" autoplay src="" class="video-js vjs-default-skin"  
+					controls preload="auto" width=100% height=100%	muted
+					poster="./images/Microphone1.png" 
+					data-setup='{"example_option":true}'>  
+				</video>
+	</div> 
+	<div id="videos-container"></div>
+	<!--<div id='remote_video_panel'>
+				<video id="remote_media" autoplay src="" class="video-js vjs-default-skin"  
+					controls preload="auto" width=100% height=100% muted			
+					poster="./images/Microphone1.png" 
+					data-setup='{"example_option":true}'>  
+				</video>
+	</div> --> 	
+  	<!-- camera display group -->  
+						
+				
+	<!-- button control group -->
+	<div id="buttondisplayframe" class="lessenes">
+		    <!--<div class="col-sm-1 col-sm-offset-1 text-center" >
+                <div class="lessenes-item">
+        			<a id="buttonchat" class="lessenes-icon fa fa-comment" title="短消息" draggable="true" style="display:none"></a>
+                </div>
+            </div>-->
+            <div class="col-sm-1 text-center">
+                <div class="lessenes-item">
+                    <a id="buttonrefresh" class="lessenes-icon fa fa-exchange" title="<%= __('Refresh') %>" style="display:none"></a>
+                </div>
+            </div>            
+            <div class="col-sm-1 text-center">
+                <div class="lessenes-item">
+                    <a id="buttonupload" class="lessenes-icon fa fa-cloud-upload" title="<%= __('Document Upload') %>" style="display:none"></a>
+                </div>
+            </div>
+            <div class="col-sm-1 text-center" >
+                <div class="lessenes-item">
+                    <a id="buttonvideo" class="lessenes-icon fa fa-film" title="<%= __('Share Video/Audio') %>" style="display:none" ></a>
+                </div>
+            </div>            
+              
+                      
+            <div class="col-sm-1 text-center" >
+                <div class="lessenes-item">
+                    <a id="buttonshareDesktop" class="lessenes-icon fa fa-desktop fa-6" title="<%= __('Share Desktop') %>" style="display: none"></a>
+                </div>
+            </div>	
+                        
+        	<div class="col-sm-1 text-center">
+                <div class="lessenes-item">
+                    <a href = "/" id="sign-out" class="lessenes-icon fa fa-sign-out fa-6" title="<%= __('Exit') %>"></a>
+                </div>
+            </div>	            			
+
+        </div>		
+	<!-- button control group -->			
+
+ 	 	<div id="fileuploadframe" class="uploadframe" style="display: none" >
+ 	 	      <div id = "filetext">
+		 		    <h4><font size = "4"><%= __('Share File') %></font></h4>
+		 		</div>
+			   <div id="clickuploadclose" class="closebutton">
+			   		<div class="closebutton-icon">X</div>
+			   </div>			 		
+		           		<div id="file2">
+	           				<span id="span1" class="btn btn-medium btn-primary btn-default btn-file">
+	           						<%= __('Send File') %><input type="file" id="file1"> 
+	          				</span>
+	    		        </div>
+	        	        <div id="file-progress"></div>
+   	        	    <button class="btn btn-small btn-primary" id="cancelFile"><%= __('Cancel') %></button>    
+	        	        
+		</div>	
+		   		  
+      <div id = "mediaGroupframe" class="mediaframe"  style="display: none">
+            <div id = "videotext">
+			    		<h4><font size = "4"><%= __('Share Video/Audio') %></font></h4>
+			   </div>
+			   <div id="clickmediagroupclose" class="closebutton">
+			   		<div class="closebutton-icon">X</div>
+			   </div>			   
+	                    <div id="file4">
+		                    <span id="span1" class="btn btn-medium btn-primary btn-default btn-file">
+		           					Select media file<input type="file" id="file3"> 
+		        			</span>
+	               	    </div>
+	                	<fieldset>
+		                    <form>
+		                        <select id="streamSelectId" name="streamSelectName" class="btn-primary" data-style="btn-primary" 
+		                        	style="font-size: x-small;">
+	                            	<option value="0" selected disabled><%= __('Play Video') %></option>
+		                        </select>
+	                    	</form>
+	                	</fieldset>    
+     </div>	
+ 
+ 
+		<div id="messageContainer">	
+		   		<!--<div id="clickchatclosebutton" class="closebutton">
+			   		<div class="closebutton-icon">X</div>
+			   	</div>--> 		
+		    <button class="btn btn-medium btn-primary" id="sendIM"><%= __('Send IM') %></button>
+		          <input type="textarea" id="myIM">
+          		  <div id = "messageBox" class="span4">
+          			<div class="well sidebar-nav" id= "messageFrame" scrolling="auto" >
+          			</div>
+   				 </div>
+   		</div>
+   		
+
+
+	 </div>
+    <!-- /main container area -->
+   
+
+
+    <!-- JavaScript -->
+
+ 	<script src="./javascripts/jquery.min.js"></script>
+    <script src="./javascripts/bootstrap.min.js"></script>
+	<script src="./javascripts/RTCMultiConnection.js"></script>
+ 
+
+<script> 
+
+        var userid = '<%= user._id %>';
+        var token = '<%= class_id %>';
+        var userName = '<%= user.local.firstName %>'+' '+'<%= user.local.lastName %>';
+        var userType = '<%= user.local.userType %>';
+        
+
+</script>
+
+
+</body>
+
+
+
+</html>
